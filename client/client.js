@@ -48,6 +48,7 @@ function update() {
 
 function renderCards(cards, rowNum) {
     let row = document.querySelectorAll(".row")[rowNum];
+    row.innerHTML = '';
     cards.forEach(card => {
         let cardDiv = GameGUI.createCard(card);
         row.appendChild(cardDiv);
