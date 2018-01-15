@@ -29,6 +29,15 @@ wsServer.on('request', (req) => {
 
     if (Object.keys(clients).length == 2) {
         initGame();
+        for(let i=0; i<5; i++) {
+            onMessage({
+                type: 'draw_card'
+            }, game.cid1);
+            onMessage({
+                type: 'draw_card'
+            }, game.cid2);
+        }
+        
     }
 
     conn.on('message', msg => {
@@ -63,6 +72,7 @@ function initGame() {
 }
 
 function onMessage(data, cid) {
+    console.log("onMsg",data, cid);
     switch(data.type) {
         case 'draw_card': 
             let card = game.drawCard(cid);

@@ -1,7 +1,58 @@
 .card {
-    width: 50px;
-    height: 50px;
-    background: black;
+    width: calc(25vh * 0.8 * 2 / 3);
+    height: calc(25vh * 0.8);
     overflow: hidden;
     margin: 5px;
+    border: 2px solid black;
+    border-radius: 3px;
+    background: url('https://images.pexels.com/photos/774166/pexels-photo-774166.jpeg?h=350&dpr=2&auto=compress&cs=tinysrgb');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.card .name {
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(180deg, rgb(0, 0, 0), transparent);
+    color: white;
+    z-index: 1;
+
+}
+
+.card .atk,
+.card .def,
+.card .cost
+{
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    background: var(--color2);
+    border: 2px solid var(--color1);
+    color: var(--color1);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 20px;
+}
+
+.card .atk {
+    left: 0;
+    --color1: green;
+    --color2: lightGreen;
+}
+
+.card .def {
+    right: 0;
+    --color1: hotpink;
+    --color2: pink;
+}
+
+.card .cost {
+    top: 15px;
+    right: 0;
+    --color0: black;
+    --color1: #eee; 
 }

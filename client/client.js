@@ -25,11 +25,11 @@ conn.onmessage = msg => {
             clientId = data.clientId;
             break;
         case 'draw_card' : 
-            //let cardDiv = GameGUI.createCard(data.card);
-            //document.body.appendChild(cardDiv);
-            if (data.cid === clientId) {
+            if (data.cid == clientId) {
+                console.log("same")
                 player.hand.push(data.card);
             } else {
+                console.log("dff")
                 opp.hand.push(data.card);
             }
             update();
