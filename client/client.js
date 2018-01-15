@@ -42,5 +42,15 @@ function drawCard() {
 }
 
 function update() {
+    renderCards(player.hand, 3);
+    renderCards(opp.hand, 0);
+}
+
+function renderCards(cards, rowNum) {
+    let row = document.querySelectorAll(".row")[rowNum];
+    cards.forEach(card => {
+        let cardDiv = GameGUI.createCard(card);
+        row.appendChild(cardDiv);
+    })
     
 }

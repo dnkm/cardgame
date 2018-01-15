@@ -19,6 +19,7 @@ class GameGUI {
         cardDiv.appendChild(atk);
         cardDiv.appendChild(def);
 
+        cardDiv.classList.add("card");
         return cardDiv;
     }
     static createTag(tagName, className, innerText) {
