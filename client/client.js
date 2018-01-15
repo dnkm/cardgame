@@ -23,13 +23,24 @@ conn.onmessage = msg => {
     switch(data.type) {
         case 'new_user' :
             clientId = data.clientId;
+            break;
         case 'draw_card' : 
-            let cardDiv = GameGUI.createCard(data.card);
-            document.body.appendChild(cardDiv);
+            //let cardDiv = GameGUI.createCard(data.card);
+            //document.body.appendChild(cardDiv);
+            if (data.cid === clientId) {
+                player.hand.push(data.card);
+            } else {
+                opp.hand.push(data.card);
+            }
+            update();
             break;
     }
 }
 
 function drawCard() {
     conn.send(JSON.stringify({type:'draw_card'}))
+}
+
+function update() {
+    
 }
